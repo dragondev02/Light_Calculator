@@ -1,6 +1,8 @@
-let firstNum = 0;
+let firstNum;
 let secondNum = 0;
 let operator;
+
+let operatorState = 0;
 
 // Lock is used to lock the result in place. Unlock when typing a new set of numbers.
 let lock = false;
@@ -65,6 +67,9 @@ const clear = document.querySelector("#clear");
 
 
 
+
+
+
         // FUNCTIONS
 
 // Appends the pressed number to the screen and removes white spaces
@@ -86,7 +91,9 @@ function appendToScreen ()
     if (!reset){
         inputScreen.append(this.textContent);
         inputScreen.textContent = inputScreen.textContent.replace(/ /g, '');
+        
         lock = false;
+        //operatorState = 0;
     }
 
 }
@@ -95,18 +102,23 @@ function appendToScreen ()
 
 // Pressing an operator assings the operator a value and resets the screen to make space for second num 
 
-function declareOperator ()
-{
-    operator = this.id;
-    console.log (operator); //test, tbr
-
-    firstNum = parseFloat(inputScreen.textContent);
-    console.log(firstNum);
+function declareOperator (){
 
 
-    inputScreen.textContent = '';
-    inputScreen.textContent = this.textContent;
-    reset = 1;
+    if (!operatorState){
+        operator = this.id;
+        console.log (operator); //test, tbr
+
+        firstNum = parseFloat(inputScreen.textContent);
+        console.log(firstNum);
+
+
+        inputScreen.textContent = '';
+        inputScreen.textContent = this.textContent;
+        reset = 1;
+        
+        operatorState = 1;
+    }
 
 }
 
@@ -114,6 +126,7 @@ function declareOperator ()
 // Perform operation based on the operator
 function operate ()
 {
+    operatorState = 0;
     secondNum = parseFloat(inputScreen.textContent);
     
 
