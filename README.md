@@ -32,5 +32,10 @@ I've tried creating a Calculator using only HTML, CSS and Vanilla JS.
 * The calculator is able to perfom the 5 basic operations
 * The calculator can handle decimal values
 * Multiple presses of the operator buttons or the equal sign do not cause the application to crash and it keeps it's original values
-* Mobile-friendly
 
+
+## Update!
+
+I felt unsatisfied with some parts of my project, so I've created an improved second version of my calculator!
+
+Check it out here: https://github.com/shinratensei02/Vanilla_Calculator_v2
